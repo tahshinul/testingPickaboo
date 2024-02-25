@@ -37,10 +37,12 @@ public class landingPage {
 	public void goToLogin() {
 		driver.get("http://pickaboo.com/");
 		driver.findElement(By.xpath("//div[@class='Button__StyledBtn-sc-55nib8-0 eUtGXp dc-btn']")).click();
+		driver.findElement(By.xpath(" //button[@id='rcc-confirm-button'] ")).click();
+	
 	}
 	
-	public void verifylogin() throws InterruptedException {
-		Thread.sleep(3000);
+	public void verifylogin() {
+		
 		Assert.assertEquals(driver.getTitle(), "Pickaboo: Your Trusted Partner for Hassle-Free Online Shopping");
 	}
 	

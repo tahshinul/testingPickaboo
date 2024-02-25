@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class test1pom {
@@ -24,14 +26,21 @@ public class test1pom {
 				//testing login
 				landingPage landingPage = new landingPage(driver);		
 				landingPage.goToLogin();
+				
 				landingPage.loginAction("tahshin2019@gmail.com", "Wtfisthat123@");
+				
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+				wait.until(ExpectedConditions.titleContains("Pickaboo: Your Trusted Partner for Hassle-Free Online Shopping"));
+				
 				landingPage.verifylogin();
 				
 				//testing search
 				search search = new search(driver);
 				search.verifySearch();
 				
-				
+				//testing if we can buy now without clicking required option
+				buy_wo_req buy =  new buy_wo_req(driver);
+				buy.checkrequired();
 				
 				
 				

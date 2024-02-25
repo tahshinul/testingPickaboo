@@ -13,8 +13,12 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By.ByCssSelector;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class test1 {
@@ -61,11 +65,16 @@ public class test1 {
         elements.get(0).click();
         
         driver.findElement(By.xpath("//div[@class='Button__StyledBtn-sc-55nib8-0 jhQlOz dc-btn']")).click();
-        Thread.sleep(1000);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".MuiTooltip-popper.MuiTooltip-popperArrow"))); 
+        
         if ( driver.findElement(By.cssSelector(".MuiTooltip-popper.MuiTooltip-popperArrow")).getText().contains("Please select variant") ) {
         	assertTrue(true);
+        	System.out.println("ase");
 		}else {
 			assertTrue(false);
+			System.out.println("nai");
 		}
         
         
