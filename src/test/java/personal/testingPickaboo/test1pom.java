@@ -27,8 +27,6 @@ public class test1pom {
 				landingPage landingPage = new landingPage(driver);		
 				landingPage.goToLogin();
 				landingPage.loginAction("tahshin2019@gmail.com", "Wtfisthat123@");
-				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-				wait.until(ExpectedConditions.titleContains("Pickaboo: Your Trusted Partner for Hassle-Free Online Shopping"));
 				landingPage.verifylogin();
 				
 				//testing search
@@ -42,8 +40,20 @@ public class test1pom {
 				//testing if buy now works
 				buynow buynow = new buynow(driver);
 				buynow.checkbuynow();
-				
 
+				//testing if applying coupon code works
+				coupon coupon = new coupon(driver);
+				coupon.applyCoupon();
+				
+				//testing if adding multiple items to cart works
+				cart cart = new cart(driver);
+				int noOfItems = 3;
+				cart.addcart(noOfItems);
+				
+				
+				
+				
+				
 				
 				
 //				driver.quit();

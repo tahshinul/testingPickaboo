@@ -32,6 +32,9 @@ WebDriver driver;
 		WebElement required = driver.findElement(By.xpath("//div[@class='ColorSection__StyledSection-sc-ksmhhv-0 ceJa-D'] //label[@class='MuiFormLabel-root text-view Mui-required']"));
         driver.findElement(RelativeLocator.with(By.className("views")).toRightOf(required)).click();
         buybutton.click();
+        
+        WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.titleContains("Shipping | Pickaboo"));
 	}
 	
 	
