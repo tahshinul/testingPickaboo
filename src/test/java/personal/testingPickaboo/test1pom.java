@@ -47,8 +47,16 @@ public class test1pom {
 				
 				//testing if adding multiple items to cart works
 				cart cart = new cart(driver);
-				int noOfItems = 3;
+				int noOfItems= 3;
+				int itemInCart=4;
 				cart.addcart(noOfItems);
+				
+				//verifying if the number of items added to cart matches
+				cart.verifycart(itemInCart);
+				
+				//testing if removing from cart works
+				cart.removeFromCart(noOfItems);
+				
 				
 				
 				
