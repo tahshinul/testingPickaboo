@@ -8,6 +8,8 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class search {
@@ -19,10 +21,14 @@ WebDriver driver;
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy (xpath = "//input[@class='searchInput form-control']")
+	WebElement searchbox;
+	
+	@FindBy(xpath = "//div[@class='search-item'] //h4")
+	List<WebElement> elements;
 	
 	public void verifySearch() {
-		driver.findElement(By.xpath("//input[@class='searchInput form-control']")).sendKeys("watch ");
-		List<WebElement> elements = driver.findElements(By.xpath("//div[@class='search-item'] //h4"));
+		searchbox.sendKeys("watch ");
         List<String> elementTexts = new ArrayList<>();
         for (WebElement element : elements) {
             elementTexts.add(element.getText());

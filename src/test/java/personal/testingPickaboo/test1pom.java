@@ -26,12 +26,9 @@ public class test1pom {
 				//testing login
 				landingPage landingPage = new landingPage(driver);		
 				landingPage.goToLogin();
-				
 				landingPage.loginAction("tahshin2019@gmail.com", "Wtfisthat123@");
-				
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 				wait.until(ExpectedConditions.titleContains("Pickaboo: Your Trusted Partner for Hassle-Free Online Shopping"));
-				
 				landingPage.verifylogin();
 				
 				//testing search
@@ -42,7 +39,9 @@ public class test1pom {
 				buy_wo_req buy =  new buy_wo_req(driver);
 				buy.checkrequired();
 				
-				
+				//testing if buy now works
+				buynow buynow = new buynow(driver);
+				buynow.checkbuynow();
 				
 
 				
