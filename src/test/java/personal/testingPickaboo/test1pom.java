@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.compress.archivers.zip.X000A_NTFS;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -55,9 +56,11 @@ public class test1pom {
 				cart.verifycart(itemInCart);
 				
 				//testing if removing from cart works
-				cart.removeFromCart(noOfItems);
+				cart.removeFromCart();
 				
-				
+				//testing if incrementing or decrementing works in the cart
+				incedecreCheck c = new incedecreCheck(driver);
+				c.increment();
 				
 				
 				

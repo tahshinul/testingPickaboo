@@ -51,10 +51,8 @@ public class cart {
 	@FindBy(xpath = "//div[@class='CartItem__StyledDiv-sc-1uy634i-0 diseeT']")
 	List<WebElement> cartElements;
 
-	@FindBy(xpath = "//div[@class='CartItem__StyledDiv-sc-1uy634i-0 diseeT']")
-	List<WebElement> cartElements2;
 
-	@FindBy(xpath = "(//div[contains(text(),'Remove')])[1]")
+	@FindBy(xpath = "(//div[contains(text(),'Remove')])[2]")
 	WebElement removElement;
 
 	@FindBy(xpath = "//div[@class='logo col-sm-2'] //a")
@@ -65,6 +63,10 @@ public class cart {
 
 	@FindBy(xpath = "(//div[@class='parent-row'] //div[@class='color-box'])[1]")
 	WebElement optionsElement;
+	
+	@FindBy(xpath = "(//div[@class='parent-row'] //div[@class='color-box-selected'])[1]")
+	WebElement optionsElement2;
+	
 
 	@FindBy(xpath = "//div[@class='cart']")
 	WebElement movElement;
@@ -84,11 +86,17 @@ public class cart {
 					Actions actions = new Actions(driver);
 					actions.moveToElement(movElement).build().perform();
 					actions.moveToElement(optionsElement).click().build().perform();
+					actions.moveToElement(optionsElement).click().build().perform();
 
 					JavascriptExecutor jse = (JavascriptExecutor) driver;
-					jse.executeScript("window.scrollBy(0,100)");
+					jse.executeScript("window.scrollBy(0,150)");
 
 					WebDriverWait wait6 = new WebDriverWait(driver, Duration.ofSeconds(5));
+//					actions.moveToElement(optionsElement).click().build().perform();
+//					actions.moveToElement(optionsElement).click().build().perform();
+					
+					JavascriptExecutor jse1 = (JavascriptExecutor) driver;
+					jse1.executeScript("window.scrollBy(0,150)");
 					wait6.until(ExpectedConditions.elementToBeClickable(addtocartElement));
 
 					actions.moveToElement(addtocartElement).click().build().perform();
@@ -108,7 +116,7 @@ public class cart {
 
 				} else {
 					JavascriptExecutor jse = (JavascriptExecutor) driver;
-					jse.executeScript("window.scrollBy(0,100)");
+					jse.executeScript("window.scrollBy(0,150)");
 
 					Actions actions = new Actions(driver);
 					actions.moveToElement(movElement).build().perform();
@@ -142,14 +150,19 @@ public class cart {
 					Actions actions = new Actions(driver);
 					actions.moveToElement(movElement).build().perform();
 
-					actions.moveToElement(optionsElement).click().build().perform();
 
+					actions.moveToElement(optionsElement2).click().build().perform();
+					actions.moveToElement(optionsElement2).click().build().perform();
+//					actions.moveToElement(optionsElement).click().build().perform();
 					JavascriptExecutor jse = (JavascriptExecutor) driver;
-					jse.executeScript("window.scrollBy(0,100)");
+					jse.executeScript("window.scrollBy(0,150)");
 
 					WebDriverWait wait6 = new WebDriverWait(driver, Duration.ofSeconds(5));
 					wait6.until(ExpectedConditions.elementToBeClickable(addtocartElement));
-
+//					actions.moveToElement(optionsElement).click().build().perform();
+					JavascriptExecutor jse3 = (JavascriptExecutor) driver;
+					jse3.executeScript("window.scrollBy(0,150)");
+					
 					actions.moveToElement(addtocartElement).click().build().perform();
 
 					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -167,7 +180,7 @@ public class cart {
 
 				} else {
 					JavascriptExecutor jse = (JavascriptExecutor) driver;
-					jse.executeScript("window.scrollBy(0,100)");
+					jse.executeScript("window.scrollBy(0,150)");
 
 					Actions actions = new Actions(driver);
 					actions.moveToElement(movElement).build().perform();
@@ -194,6 +207,8 @@ public class cart {
 				}
 			}
 			try {
+				JavascriptExecutor jse = (JavascriptExecutor) driver;
+				jse.executeScript("window.scrollBy(0,150)");
 				addtocartElement.click();
 				WebDriverWait wait3 = new WebDriverWait(driver, Duration.ofSeconds(5));
 				wait3.until(ExpectedConditions.titleContains("Shopping Cart | Pickaboo"));
@@ -216,18 +231,10 @@ public class cart {
 		}
 	}
 
-	public void removeFromCart(int g) {
-
-		driver.navigate().to("https://www.pickaboo.com/checkout/cart/");
-		try {
-			WebDriverWait wait8 = new WebDriverWait(driver, Duration.ofSeconds(5));
-			wait8.until(ExpectedConditions.titleContains("Shopping Cart | Pickaboo"));
-
-		} catch (Exception f) {
-			WebDriverWait wait8 = new WebDriverWait(driver, Duration.ofSeconds(5));
-			wait8.until(ExpectedConditions.titleContains("Shipping | Pickaboo"));
-
-		}
+	public void removeFromCart() {
 		removElement.click();
+		
+		
+		
 	}
 }
