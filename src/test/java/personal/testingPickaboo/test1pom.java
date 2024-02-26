@@ -58,12 +58,16 @@ public class test1pom {
 				//testing if removing from cart works
 				cart.removeFromCart();
 				
-				//testing if incrementing or decrementing works in the cart
+				//testing if incrementing works in the cart
 				incedecreCheck c = new incedecreCheck(driver);
 				c.increment();
 				
-				
-				
+				//testing if incrementing works in the cart
+				c.decrement();
+
+				//testing if proceed to checkout works
+				checkout checkout = new checkout(driver);
+				checkout.proceedToCheckout();
 				
 				
 				

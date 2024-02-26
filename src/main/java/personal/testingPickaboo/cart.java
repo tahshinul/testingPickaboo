@@ -233,8 +233,6 @@ public class cart {
 
 	public void removeFromCart() {
 		removElement.click();
-		
-		
-		
+
 	}
 }
