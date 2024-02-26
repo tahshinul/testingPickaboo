@@ -46,7 +46,7 @@ public class address {
 	@FindBy(xpath = "//div[@class='MuiFormControl-root MuiTextField-root input-field'] //input")
 	WebElement inputfElement;
 
-	@FindBy(xpath = "//div[@class='ButtonSubmit__StyledBtnSubmit-sc-lv78mv-0 bCHWUx dc-btn'] //button //span")
+	@FindBy(xpath = "//div[@class='ButtonSubmit__StyledBtnSubmit-sc-lv78mv-0 bCHWUx dc-btn'] //button //span[normalize-space()='Save Address']")
 	WebElement savebuttonElement;
 
 	@FindBy(xpath = "//div[@class='MyProgressBar__StyledMain-sc-jbihv8-0 gRkhKd']")
@@ -61,22 +61,30 @@ public class address {
 	public void upadateExistingAdress(String x) {
 		manageadressElement.click();
 		System.out.println("ager address = " + actualadressElement.getText());
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		
 		editadressbuttonElement.click();
 		inputfElement.click();
 		inputfElement.clear();
 		inputfElement.sendKeys(x);
 
 		namelElement.click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(savebuttonElement));
 		savebuttonElement.click();
+		
 
 //		nextElement.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.invisibilityOf(progressElement));
 
 //		manageadressElement.click();
 		System.out.println("ekhonkar address = " + actualadressElement.getText());
 		assertEquals(actualadressElement.getText(), x);
 
+	}
+	
+	public void addNewAddress() {
+		
 	}
 
 }

@@ -81,7 +81,12 @@ public class test1pom {
 				address address = new address(driver);
 				address.upadateExistingAdress("t-185");
 				
-//				driver.quit();
+				
+				//testing logout
+				logout logout = new logout(driver);
+				logout.out();
+				
+				driver.quit();
 				
 				
 
