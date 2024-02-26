@@ -69,9 +69,20 @@ public class test1pom {
 				checkout checkout = new checkout(driver);
 				checkout.proceedToCheckout();
 				
+				//testing if my accounts submenu works
+				submenu submenu = new submenu(driver);
+				submenu.expandMenu();
 				
+				//Testing if updating account information works
+				accinfo accinfo = new accinfo(driver);
+				accinfo.upadate("tahshin");
+				
+				//Testing if updating existing address works
+				address address = new address(driver);
+				address.upadateExistingAdress("t-185");
 				
 //				driver.quit();
+				
 				
 
 	}

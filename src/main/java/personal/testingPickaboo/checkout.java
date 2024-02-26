@@ -31,17 +31,21 @@ public class checkout {
 	@FindBy(xpath = "//div[@class='logo col-sm-2'] //a")
 	WebElement pickaboologoElement;
 	
+	@FindBy(xpath = "//div[@class='MyProgressBar__StyledMain-sc-jbihv8-0 gRkhKd']")
+	WebElement progressElement;
+	
 	public void proceedToCheckout() {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(checkoutbuttonElement));
 		
 		checkoutbuttonElement.click();
 		
-		wait.until(ExpectedConditions.elementToBeClickable(checkoutbuttonElement));
+		wait.until(ExpectedConditions.invisibilityOf(progressElement));
 		checkoutbuttonElement.click();
-		
+		wait.until(ExpectedConditions.invisibilityOf(progressElement));
+
 		assertTrue(driver.getTitle().contains("Payment | Pickaboo"));
-		
+
 		pickaboologoElement.click();
 	}
 

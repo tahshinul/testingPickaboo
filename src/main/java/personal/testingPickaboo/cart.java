@@ -101,7 +101,7 @@ public class cart {
 
 					actions.moveToElement(addtocartElement).click().build().perform();
 
-					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 					wait.until(ExpectedConditions.visibilityOf(barElement));
 					System.out.println(barelementtext.getText());
 					try {
@@ -126,7 +126,7 @@ public class cart {
 
 					actions.moveToElement(addtocartElement).click().build().perform();
 
-					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 					wait.until(ExpectedConditions.visibilityOf(barElement));
 					System.out.println(barelementtext.getText());
 
@@ -165,7 +165,7 @@ public class cart {
 					
 					actions.moveToElement(addtocartElement).click().build().perform();
 
-					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 					wait.until(ExpectedConditions.visibilityOf(barElement));
 					System.out.println(barelementtext.getText());
 					try {
@@ -190,7 +190,7 @@ public class cart {
 
 					actions.moveToElement(addtocartElement).click().build().perform();
 
-					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 					wait.until(ExpectedConditions.visibilityOf(barElement));
 					System.out.println(barelementtext.getText());
 

@@ -42,6 +42,8 @@ WebDriver driver;
 	public void applyCoupon() {
 //		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 //		wait.until(ExpectedConditions.elementToBeClickable(xpandDiscountpanel));
+		
+		
 		xpandDiscountpanel.click();
 		textfieldElement.sendKeys("abc");
 		applybutton.click();
